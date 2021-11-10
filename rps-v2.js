@@ -1,4 +1,6 @@
 
+document.getElementById('btn').addEventListener("click", function selectOption() {
+ }​);
 
 function selectOption() {
     let playerSelection = prompt("Rock, Paper, or Scissors");
