@@ -9,7 +9,12 @@ const btn = document.querySelector('#btn')
 const btn2 = document.querySelector('#btn2')
 
 let userChoice = () => {
-    playerSelect = prompt("Rock, Paper, or Scissors")
+	playerSelect = prompt("Rock, Paper, or Scissors")
+	if (playerSelect === null) {
+		return
+	} else if (playerSelect === '') {
+		return
+	}
     computerPlay()
     compare(playerSelect, computersChoice)
     alert(result)
@@ -28,9 +33,7 @@ let computerPlay = () => {
 }
 
 let compare = (playerSelect, computersChoice) => {
-	if (playerSelect === undefined || playerSelect !== 'Scissors' || playerSelect !== 'Paper' || playerSelect !== 'Rock') {
-		alert("You need to enter a valid value -- Rock, Paper, or Scissors")
-	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+	if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
         if ( playerSelect === computersChoice ) {
 			result = 'This is a Tie -- go again!'
 			++userScore
@@ -66,6 +69,8 @@ let compare = (playerSelect, computersChoice) => {
 			++compScore
 			
         }        
+	} else {
+		alert("You fucked up the input!")
 	}
 
 	if (userScore > compScore) {
@@ -80,6 +85,11 @@ let compare = (playerSelect, computersChoice) => {
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
 		playerSelect = prompt("Rock, Paper, or Scissors")
+		if (playerSelect === null) {
+			return
+		} else if (playerSelect === '') {
+			return
+		}
 		computerPlay()
 		compare(playerSelect, computersChoice)
 		console.log(compScore)
