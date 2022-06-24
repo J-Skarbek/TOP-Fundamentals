@@ -1,14 +1,20 @@
 
-function selectOption() {
-    let playerSelection = prompt("Rock, Paper, or Scissors");
-    return playerSelection; 
-}
-
 let playersSelection = selectOption();
+let computersChoice = computerPlay();
+let gameResults = compare(playersSelection, computersChoice);
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+    playGames();
+})
+
+function selectOption() {
+    playerSelection = prompt("Rock, Paper, or Scissors");
+    return playerSelection;
+}
 
 function computerPlay() {
 
-    let computerChoice = Math.random();
+    computerChoice = Math.random();
 
     if (computerChoice <= 0.34) {
         return 'Scissors';
@@ -18,8 +24,6 @@ function computerPlay() {
         return 'Rock';
     }
 }
-
-let computersChoice = computerPlay();
 
 function compare(playersSelection, computersChoice) {
 
@@ -46,23 +50,21 @@ function compare(playersSelection, computersChoice) {
     }    
 }
 
-let gameResults = compare(playersSelection, computersChoice);
-
 function playGames() {
     selectOption();
     computerPlay();
     console.log(gameResults);
-    selectOption();
-    computerPlay();
-    console.log(gameResults);
-    selectOption();
-    computerPlay();
-    console.log(gameResults);
-    selectOption();
-    computerPlay();
-    console.log(gameResults);
-    selectOption();
-    computerPlay();
-    console.log(gameResults);
+    // selectOption();
+    // computerPlay();
+    // console.log(gameResults);
+    // selectOption();
+    // computerPlay();
+    // console.log(gameResults);
+    // selectOption();
+    // computerPlay();
+    // console.log(gameResults);
+    // selectOption();
+    // computerPlay();
+    // console.log(gameResults);
 }
 

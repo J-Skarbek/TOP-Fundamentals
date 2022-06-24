@@ -1,6 +1,24 @@
+let playerSelection = '';
+let playerInput = playerSelection;
+let computerChoice = '';
+let computersChoice = computerPlay();
+let gameResults = compare(playerInput, computersChoice);
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', () => {
+    playerSelection = prompt("Rock, Paper, or Scissors");
+    return playerSelection;
+})
+
+// btn.addEventListener('click', () => {
+//     playerSelection = prompt("Rock, Paper, or Scissors");
+//     return playerSelection;
+// })
+
+
 function computerPlay() {
 
-    let computerChoice = Math.random();
+    computerChoice = Math.random();
 
     if (computerChoice <= 0.34) {
         return 'Scissors';
@@ -11,48 +29,48 @@ function computerPlay() {
     }
 }
 
-let computersChoice = computerPlay();
+// let computersChoice = computerPlay();
 
 function selectOption() {
     let playerSelection = prompt("Rock, Paper, or Scissors");
     return playerSelection; 
 }
 
-let playersSelection = selectOption();
+// let playerInput = selectOption();
 
-function compare(playersSelection, computersChoice) {
+function compare(playerInput, computersChoice) {
 
     if (computersChoice === 'Scissors' || computersChoice === 'Paper' || computersChoice === 'Rock') {
-        if ( playersSelection === computersChoice ) {
+        if ( playerInput === computersChoice ) {
             return 'This is a Tie -- go again!';
 
-        } else if (playersSelection === 'Scissors' && computersChoice === 'Paper') {
+        } else if (playerInput === 'Scissors' && computersChoice === 'Paper') {
             return 'Computer loses -- Scissors cut Paper!';
 
-        } else if (playersSelection === 'Paper' && computersChoice === 'Rock') {
+        } else if (playerInput === 'Paper' && computersChoice === 'Rock') {
             return 'Computer Loses -- Paper wraps Rock!';
 
-        } else if (playersSelection === 'Rock' && computersChoice === 'Scissors') {
+        } else if (playerInput === 'Rock' && computersChoice === 'Scissors') {
             return 'Computer Loses -- Rock crushes Scissors!';
 
-        } else if (playersSelection === 'Paper' && computersChoice === 'Scissors') {
+        } else if (playerInput === 'Paper' && computersChoice === 'Scissors') {
             return 'You Lose -- Scissors cut Paper!';
 
-        } else if (playersSelection === 'Rock' && computersChoice === 'Paper') {
+        } else if (playerInput === 'Rock' && computersChoice === 'Paper') {
             return 'You Lose -- Paper wraps Rock!';
 
-        } else if (playersSelection === 'Scissors' && computersChoice === 'Rock') {
+        } else if (playerInput === 'Scissors' && computersChoice === 'Rock') {
             return 'You Lose -- Rock crushes Scissors!';
         }
     }
 
 }
 
-let gameResults = compare(playersSelection, computersChoice);
+// let gameResults = compare(playerInput, computersChoice);
 
-alert(gameResults);
+// alert(gameResults);
 
-console.log(compare(playersSelection, computersChoice));
+console.log(compare(playerInput, computersChoice));
 
 
 
