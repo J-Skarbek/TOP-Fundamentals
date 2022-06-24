@@ -10,14 +10,33 @@ const btn2 = document.querySelector('#btn2')
 
 let userChoice = () => {
 	playerSelect = prompt("Rock, Paper, or Scissors")
-	if (playerSelect === null) {
+	// playerSelect.toLowerCase()
+	validateInput()
+}
+
+let validateInput = () => {
+	if (playerSelect === null || playerSelect === '') {
 		return
-	} else if (playerSelect === '') {
-		return
+	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+		computerPlay()
+		compare(playerSelect, computersChoice)
+		alert(result)
+	} else {
+		alert("You fucked up the input!")
+		playerSelect = prompt("Rock, Paper, or Scissors")
+		validateInput()
 	}
-    computerPlay()
-    compare(playerSelect, computersChoice)
-    alert(result)
+}
+
+let validateByFive = () => {
+	if (playerSelect === null || playerSelect === '') {
+		return
+	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+		computerPlay()
+		compare(playerSelect, computersChoice)
+	} else {
+		alert("You fucked up the input!")
+	}
 }
 
 let computerPlay = () => {
@@ -33,67 +52,56 @@ let computerPlay = () => {
 }
 
 let compare = (playerSelect, computersChoice) => {
-	if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
-        if ( playerSelect === computersChoice ) {
-			result = 'This is a Tie -- go again!'
-			++userScore
-			++compScore
+	if ( playerSelect === computersChoice ) {
+		result = 'This is a Tie -- go again!'
+		++userScore
+		++compScore
 
-        } else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
-			result = 'Computer loses -- Scissors cut Paper!'
-			++userScore
-			
+	} else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
+		result = 'Computer loses -- Scissors cut Paper!'
+		++userScore
+		
 
-        } else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
-			result = 'Computer Loses -- Paper wraps Rock!'
-			++userScore
-			
+	} else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
+		result = 'Computer Loses -- Paper wraps Rock!'
+		++userScore
+		
 
-        } else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
-			result = 'Computer Loses -- Rock crushes Scissors!'
-			++userScore
-			
+	} else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
+		result = 'Computer Loses -- Rock crushes Scissors!'
+		++userScore
+		
 
-        } else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
-			result = 'You Lose -- Scissors cut Paper!'
-			++compScore
-			
+	} else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
+		result = 'You Lose -- Scissors cut Paper!'
+		++compScore
+		
 
-        } else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
-			result = 'You Lose -- Paper wraps Rock!'
-			++compScore
-			
+	} else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
+		result = 'You Lose -- Paper wraps Rock!'
+		++compScore
+		
 
-        } else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
-			result = 'You Lose -- Rock crushes Scissors!'
-			++compScore
-			
-        }        
-	} else {
-		alert("You fucked up the input!")
-	}
-
-	if (userScore > compScore) {
-		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
-	} else if (compScore > userScore) {
-		finalscore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
-	} else if (compScore === userScore) {
-		finalscore = `Fuck, this is annoying, it's a goddamned fucking tie.`
+	} else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
+		result = 'You Lose -- Rock crushes Scissors!'
+		++compScore
+		
 	}
 }
 
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
 		playerSelect = prompt("Rock, Paper, or Scissors")
-		if (playerSelect === null) {
-			return
-		} else if (playerSelect === '') {
-			return
-		}
-		computerPlay()
-		compare(playerSelect, computersChoice)
+		validateByFive()
 		console.log(compScore)
 		console.log(userScore)
+	}
+	if (userScore > compScore) {
+		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
+	} else if (compScore > userScore) {
+		finalscore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
+	} else if (compScore === userScore) {
+		finalscore = `Fuck, this is annoying, it's a goddamned fucking tie.`
 	}
 	alert(finalScore)
 }
