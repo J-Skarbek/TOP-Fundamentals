@@ -1,6 +1,9 @@
 let playerSelect = ''
 let computersChoice = ''
 let result = ''
+let userScore = ''
+let compScore = ''
+let finalScore = ''
 
 const btn = document.querySelector('#btn')
 const btn2 = document.querySelector('#btn2')
@@ -27,27 +30,39 @@ let computerPlay = () => {
 let compare = (playerSelect, computersChoice) => {
     if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
         if ( playerSelect === computersChoice ) {
-            result = 'This is a Tie -- go again!'
+			result = 'This is a Tie -- go again!'
 
         } else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
-            result = 'Computer loses -- Scissors cut Paper!'
+			result = 'Computer loses -- Scissors cut Paper!'
+			++userScore
 
         } else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
-            result = 'Computer Loses -- Paper wraps Rock!'
+			result = 'Computer Loses -- Paper wraps Rock!'
+			++userScore
 
         } else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
-            result = 'Computer Loses -- Rock crushes Scissors!'
+			result = 'Computer Loses -- Rock crushes Scissors!'
+			++userScore
 
         } else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
-            result = 'You Lose -- Scissors cut Paper!'
+			result = 'You Lose -- Scissors cut Paper!'
+			++compScore
 
         } else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
-            result = 'You Lose -- Paper wraps Rock!'
+			result = 'You Lose -- Paper wraps Rock!'
+			++compScore
 
         } else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
-            result = 'You Lose -- Rock crushes Scissors!'
+			result = 'You Lose -- Rock crushes Scissors!'
+			++compScore
         }        
-    }
+	}
+
+	if (userScore > compScore) {
+		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
+	} else {
+		finalscore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
+	}
 }
 
 let fiveRoundGame = () => {
@@ -55,8 +70,10 @@ let fiveRoundGame = () => {
 		playerSelect = prompt("Rock, Paper, or Scissors")
 		computerPlay()
 		compare(playerSelect, computersChoice)
-		alert(result)
-    }
+		console.log(compScore)
+		console.log(userScore)
+	}
+	alert(finalScore)
 }
 
 btn.addEventListener('click', userChoice);
