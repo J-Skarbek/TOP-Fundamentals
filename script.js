@@ -12,14 +12,6 @@ let userChoice = () => {
     alert(result)
 }
 
-let multigame = () => {
-    playerSelect = prompt("Rock, Paper, or Scissors")
-    computerPlay()
-    fiveRoundGame()
-    alert(result)
-    
-}
-
 let computerPlay = () => {
     let random = Math.random()
     if (random <= 0.34) {
@@ -60,9 +52,12 @@ let compare = (playerSelect, computersChoice) => {
 
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
-        multigame()
+		playerSelect = prompt("Rock, Paper, or Scissors")
+		computerPlay()
+		compare(playerSelect, computersChoice)
+		alert(result)
     }
 }
 
 btn.addEventListener('click', userChoice);
-btn2.addEventListener('click', multigame);
+btn2.addEventListener('click', fiveRoundGame);
