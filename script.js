@@ -1,8 +1,8 @@
 let playerSelect = ''
 let computersChoice = ''
 let result = ''
-let userScore = ''
-let compScore = ''
+let userScore = 0
+let compScore = 0
 let finalScore = ''
 
 const btn = document.querySelector('#btn')
@@ -28,40 +28,52 @@ let computerPlay = () => {
 }
 
 let compare = (playerSelect, computersChoice) => {
-    if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+	if (playerSelect === undefined || playerSelect !== 'Scissors' || playerSelect !== 'Paper' || playerSelect !== 'Rock') {
+		alert("You need to enter a valid value -- Rock, Paper, or Scissors")
+	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
         if ( playerSelect === computersChoice ) {
 			result = 'This is a Tie -- go again!'
+			++userScore
+			++compScore
 
         } else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
 			result = 'Computer loses -- Scissors cut Paper!'
 			++userScore
+			
 
         } else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
 			result = 'Computer Loses -- Paper wraps Rock!'
 			++userScore
+			
 
         } else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
 			result = 'Computer Loses -- Rock crushes Scissors!'
 			++userScore
+			
 
         } else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
 			result = 'You Lose -- Scissors cut Paper!'
 			++compScore
+			
 
         } else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
 			result = 'You Lose -- Paper wraps Rock!'
 			++compScore
+			
 
         } else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
 			result = 'You Lose -- Rock crushes Scissors!'
 			++compScore
+			
         }        
 	}
 
 	if (userScore > compScore) {
 		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
-	} else {
+	} else if (compScore > userScore) {
 		finalscore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
+	} else if (compScore === userScore) {
+		finalscore = `Fuck, this is annoying, it's a goddamned fucking tie.`
 	}
 }
 
