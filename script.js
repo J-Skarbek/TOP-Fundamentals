@@ -1,10 +1,14 @@
 let playerSelect = ''
 let computersChoice = ''
+let result = ''
 
+const btn = document.querySelector('#btn');
 
 let userChoice = () => {
     playerSelect = prompt("Rock, Paper, or Scissors")
-    return playerSelect
+    computerPlay()
+    compare(playerSelect, computersChoice)
+    alert(result)
 }
 
 let computerPlay = () => {
@@ -14,44 +18,41 @@ let computerPlay = () => {
     } else if (random  >= 0.35 && random <= 0.67) {
         computersChoice = 'Paper'
     } else {
-        computersChoice = 'rock'
+        computersChoice = 'Rock'
     }
     return computersChoice
 }
 
-// const userChoice = () => {
-//     playerSelect = prompt("Rock, Paper, or Scissors")
-//     return playerSelect
-// }
+let compare = (playerSelect, computersChoice) => {
+    if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+        if ( playerSelect === computersChoice ) {
+            result = 'This is a Tie -- go again!'
+            // return 'This is a Tie -- go again!'
 
-const btn = document.querySelector('#btn');
+        } else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
+            result = 'Computer loses -- Scissors cut Paper!'
+            // return 'Computer loses -- Scissors cut Paper!'
+
+        } else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
+            result = 'Computer Loses -- Paper wraps Rock!'
+            // return 'Computer Loses -- Paper wraps Rock!'
+
+        } else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
+            result = 'Computer Loses -- Rock crushes Scissors!'
+
+        } else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
+            result = 'You Lose -- Scissors cut Paper!'
+            // return 'You Lose -- Scissors cut Paper!'
+
+        } else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
+            result = 'You Lose -- Paper wraps Rock!'
+            // return 'You Lose -- Paper wraps Rock!'
+
+        } else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
+            result = 'You Lose -- Rock crushes Scissors!'
+            // return 'You Lose -- Rock crushes Scissors!'
+        }        
+    }
+}
+
 btn.addEventListener('click', userChoice);
-
-
-// function compare(playerInput, computersChoice) {
-
-//     if (computersChoice === 'Scissors' || computersChoice === 'Paper' || computersChoice === 'Rock') {
-//         if ( playerInput === computersChoice ) {
-//             return 'This is a Tie -- go again!';
-
-//         } else if (playerInput === 'Scissors' && computersChoice === 'Paper') {
-//             return 'Computer loses -- Scissors cut Paper!';
-
-//         } else if (playerInput === 'Paper' && computersChoice === 'Rock') {
-//             return 'Computer Loses -- Paper wraps Rock!';
-
-//         } else if (playerInput === 'Rock' && computersChoice === 'Scissors') {
-//             return 'Computer Loses -- Rock crushes Scissors!';
-
-//         } else if (playerInput === 'Paper' && computersChoice === 'Scissors') {
-//             return 'You Lose -- Scissors cut Paper!';
-
-//         } else if (playerInput === 'Rock' && computersChoice === 'Paper') {
-//             return 'You Lose -- Paper wraps Rock!';
-
-//         } else if (playerInput === 'Scissors' && computersChoice === 'Rock') {
-//             return 'You Lose -- Rock crushes Scissors!';
-//         }
-//     }
-
-// }
