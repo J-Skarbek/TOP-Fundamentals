@@ -46,3 +46,79 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+:root {
+   --med-peach: #EB934F;
+   --mid-dark-peach: #D9905F;
+   --off-red-peach: #F66047;
+   --honey-mustard-yellow: #F8D668;
+   --white: #fff;
+   --black: #000;
+   --eggshell: #F7EED0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'outfit', sans-serif;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+p,
+a,
+link,
+span {
+    font-family: 'outfit', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: var(--eggshell);
+}
+
+/* 
+font-family: 'Josefin Slab', serif; */
+
+.page-container {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(50px, 1fr));
+    grid-template-rows: repeat(12, minmax(50px, 1fr));
+    padding: 20px 100px;
+}
+
+.page-container > div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    line-height: 2;
+}
+
+.title {
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+}
+
+.input-control {
+    grid-column: 1 / span 12;
+    grid-row: 2 / span 1;
+}
+
+.score-box {
+    grid-column: 1 / span 12;
+    grid-row: 3 / span 2;
+}
+
