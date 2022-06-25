@@ -93,9 +93,6 @@ let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
 		playerSelect = prompt("Rock, Paper, or Scissors").toLowerCase()
 		validateByFive()
-		console.log(compScore)
-		console.log(userScore)
-
 	}
 	evalScores(userScore, compScore)
 	alert(finalScore)
