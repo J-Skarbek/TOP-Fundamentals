@@ -15,8 +15,9 @@ let userChoice = () => {
 
 let validateInput = () => {
 	if (playerSelect === null || playerSelect === '') {
-		return
+		return 
 	} else if (playerSelect === 'scissors' || playerSelect === 'paper' || playerSelect === 'rock') {
+		playerSelect.toLowerCase()
 		computerPlay()
 		compare(playerSelect, computersChoice)
 		alert(result)
@@ -91,25 +92,32 @@ let compare = (playerSelect, computersChoice) => {
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
 		playerSelect = prompt("Rock, Paper, or Scissors").toLowerCase()
-		console.log(playerSelect)
 		validateByFive()
 		console.log(compScore)
 		console.log(userScore)
+
 	}
 	evalScores(userScore, compScore)
 	alert(finalScore)
-	userScore = 0
-	compScore = 0
+	resetScores()
 }
 
 let evalScores = () => {
-	if (userScore > compScore) {
-		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
+	if (userScore === 0 && compScore === 0) {
+		finalScore = `There was an issue with the input.`
 	} else if (compScore > userScore) {
-		finalscore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
-	} else if (compScore === userScore) {
-		finalscore = `Fuck, this is annoying, it's a goddamned fucking tie.`
+		finalScore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
+	} else if (compScore < userScore) {
+		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
+	} else {
+		finalScore = `Fuck, this is annoying, it's a goddamned fucking tie.`
 	}
+}
+
+let resetScores = () => {
+	userScore = 0
+	compScore = 0
+	finalScore = ''
 }
 
 btn.addEventListener('click', userChoice);
