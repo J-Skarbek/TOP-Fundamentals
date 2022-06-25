@@ -9,21 +9,20 @@ const btn = document.querySelector('#btn')
 const btn2 = document.querySelector('#btn2')
 
 let userChoice = () => {
-	playerSelect = prompt("Rock, Paper, or Scissors")
-	// playerSelect.toLowerCase()
+	playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
 	validateInput()
 }
 
 let validateInput = () => {
 	if (playerSelect === null || playerSelect === '') {
 		return
-	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+	} else if (playerSelect === 'scissors' || playerSelect === 'paper' || playerSelect === 'rock') {
 		computerPlay()
 		compare(playerSelect, computersChoice)
 		alert(result)
 	} else {
 		alert("You fucked up the input!")
-		playerSelect = prompt("Rock, Paper, or Scissors")
+		playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
 		validateInput()
 	}
 }
@@ -31,7 +30,7 @@ let validateInput = () => {
 let validateByFive = () => {
 	if (playerSelect === null || playerSelect === '') {
 		return
-	} else if (playerSelect === 'Scissors' || playerSelect === 'Paper' || playerSelect === 'Rock') {
+	} else if (playerSelect === 'scissors' || playerSelect === 'paper' || playerSelect === 'rock') {
 		computerPlay()
 		compare(playerSelect, computersChoice)
 	} else {
@@ -42,11 +41,11 @@ let validateByFive = () => {
 let computerPlay = () => {
     let random = Math.random()
     if (random <= 0.34) {
-        computersChoice = 'Scissors'
+        computersChoice = 'scissors'
     } else if (random  >= 0.35 && random <= 0.67) {
-        computersChoice = 'Paper'
+        computersChoice = 'paper'
     } else {
-        computersChoice = 'Rock'
+        computersChoice = 'rock'
     }
     return computersChoice
 }
@@ -57,32 +56,32 @@ let compare = (playerSelect, computersChoice) => {
 		++userScore
 		++compScore
 
-	} else if (playerSelect === 'Scissors' && computersChoice === 'Paper') {
+	} else if (playerSelect === 'scissors' && computersChoice === 'paper') {
 		result = 'Computer loses -- Scissors cut Paper!'
 		++userScore
 		
 
-	} else if (playerSelect === 'Paper' && computersChoice === 'Rock') {
+	} else if (playerSelect === 'paper' && computersChoice === 'rock') {
 		result = 'Computer Loses -- Paper wraps Rock!'
 		++userScore
 		
 
-	} else if (playerSelect === 'Rock' && computersChoice === 'Scissors') {
+	} else if (playerSelect === 'rock' && computersChoice === 'scissors') {
 		result = 'Computer Loses -- Rock crushes Scissors!'
 		++userScore
 		
 
-	} else if (playerSelect === 'Paper' && computersChoice === 'Scissors') {
+	} else if (playerSelect === 'paper' && computersChoice === 'scissors') {
 		result = 'You Lose -- Scissors cut Paper!'
 		++compScore
 		
 
-	} else if (playerSelect === 'Rock' && computersChoice === 'Paper') {
+	} else if (playerSelect === 'rock' && computersChoice === 'paper') {
 		result = 'You Lose -- Paper wraps Rock!'
 		++compScore
 		
 
-	} else if (playerSelect === 'Scissors' && computersChoice === 'Rock') {
+	} else if (playerSelect === 'scissors' && computersChoice === 'rock') {
 		result = 'You Lose -- Rock crushes Scissors!'
 		++compScore
 		
@@ -91,7 +90,7 @@ let compare = (playerSelect, computersChoice) => {
 
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
-		playerSelect = prompt("Rock, Paper, or Scissors")
+		playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
 		validateByFive()
 		console.log(compScore)
 		console.log(userScore)
