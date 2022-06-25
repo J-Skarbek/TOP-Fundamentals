@@ -90,11 +90,19 @@ let compare = (playerSelect, computersChoice) => {
 
 let fiveRoundGame = () => {
     for (let i = 0; i < 5; i++) {
-		playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
+		playerSelect = prompt("Rock, Paper, or Scissors").toLowerCase()
+		console.log(playerSelect)
 		validateByFive()
 		console.log(compScore)
 		console.log(userScore)
 	}
+	evalScores(userScore, compScore)
+	alert(finalScore)
+	userScore = 0
+	compScore = 0
+}
+
+let evalScores = () => {
 	if (userScore > compScore) {
 		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
 	} else if (compScore > userScore) {
@@ -102,7 +110,6 @@ let fiveRoundGame = () => {
 	} else if (compScore === userScore) {
 		finalscore = `Fuck, this is annoying, it's a goddamned fucking tie.`
 	}
-	alert(finalScore)
 }
 
 btn.addEventListener('click', userChoice);
