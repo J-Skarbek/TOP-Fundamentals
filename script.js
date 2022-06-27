@@ -5,12 +5,31 @@ let userScore = 0
 let compScore = 0
 let finalScore = ''
 
-const btn = document.querySelector('#btn')
-const btn2 = document.querySelector('#btn2')
+// const btn = document.querySelector('#btn')
+// const btn2 = document.querySelector('#btn2')
 
-let userChoice = () => {
-	playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
-	validateInput()
+const rockSelect = document.querySelector('#btn-rock')
+const paperSelect = document.querySelector('#btn-paper')
+const scissorsSelect = document.querySelector('#btn-scissors')
+
+// let userChoice = () => {
+// 	playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
+// 	validateInput()
+// }
+
+let rock = () => {
+		playerSelect = 'rock'
+		console.log(playerSelect)
+}
+
+let paper = () => {
+		playerSelect = 'paper'
+		console.log(playerSelect)
+}
+
+let scissors = () => {
+	playerSelect = 'scissors'
+	console.log(playerSelect)
 }
 
 let validateInput = () => {
@@ -117,5 +136,9 @@ let resetScores = () => {
 	finalScore = ''
 }
 
-btn.addEventListener('click', userChoice);
-btn2.addEventListener('click', fiveRoundGame);
+// btn.addEventListener('click', userChoice)
+// btn2.addEventListener('click', fiveRoundGame)
+
+rockSelect.addEventListener('click', rock)
+paperSelect.addEventListener('click', paper)
+scissorsSelect.addEventListener('click', scissors)

@@ -89,6 +89,11 @@ span {
     font-weight: 300;
 }
 
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
 body {
     background-color: var(--eggshell);
 }
@@ -140,11 +145,6 @@ button:hover {
     grid-row: 3 / span 1;
 }
 
-.footer-info {
-    grid-column: 1 / span 12;
-    grid-row: 5 / span 1;
-}
-
 .buttons,
 .results {
     display: flex;
@@ -161,3 +161,15 @@ button:hover {
     border-radius: 25px;
 }
 
+.result-box h2 {
+    font-size: 1.3rem;
+}
+
+.footer-info {
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 1;
+}
+
+.footer-info a:hover {
+    color: var(--mid-dark-peach);
+}
