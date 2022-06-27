@@ -116,7 +116,8 @@ button:hover {
 .page-container {
     display: grid;
     grid-template-columns: repeat(12, minmax(50px, 1fr));
-    grid-template-rows: repeat(5, minmax(50px, 1fr));
+    /* grid-template-rows: repeat(4, minmax(50px, 1fr)); */
+    grid-template-rows: 200px 150px 1fr 200px;
     padding: 20px 100px;
 }
 
@@ -159,6 +160,11 @@ button:hover {
     background-color: var(--white);
     border: 2px var(--med-peach) solid;
     border-radius: 25px;
+    min-width: 250px;
+}
+
+.final-score {
+    min-width: 550px;
 }
 
 .result-box h2 {
@@ -167,7 +173,7 @@ button:hover {
 
 .footer-info {
     grid-column: 1 / span 12;
-    grid-row: 5 / span 1;
+    grid-row: 4 / span 1;
 }
 
 .footer-info a:hover {

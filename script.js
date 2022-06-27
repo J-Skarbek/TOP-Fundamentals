@@ -37,10 +37,8 @@ let removeResults = () => {
 
 let rock = () => {
 	playerSelect = 'rock'
-	console.log(playerSelect)
 	computerPlay()
 	compare(playerSelect, computersChoice)
-	console.log(result)
 	playerOutput.appendChild(playerScoreOutput).textContent = `${userScore}`
 	computerOutput.appendChild(computerScoreOutput).textContent = `${compScore}`
 	evalScores()
@@ -49,10 +47,8 @@ let rock = () => {
 
 let paper = () => {
 	playerSelect = 'paper'
-	console.log(playerSelect)
 	computerPlay()
 	compare(playerSelect, computersChoice)
-	console.log(result)
 	playerOutput.appendChild(playerScoreOutput).textContent = `${userScore}`
 	computerOutput.appendChild(computerScoreOutput).textContent = `${compScore}`
 	evalScores()
@@ -61,10 +57,8 @@ let paper = () => {
 
 let scissors = () => {
 	playerSelect = 'scissors'
-	console.log(playerSelect)
 	computerPlay()
 	compare(playerSelect, computersChoice)
-	console.log(result)
 	playerOutput.appendChild(playerScoreOutput).textContent = `${userScore}`
 	computerOutput.appendChild(computerScoreOutput).textContent = `${compScore}`
 	evalScores()
@@ -117,17 +111,14 @@ let evalScores = () => {
 	if (userScore === 5 || compScore === 5 && userScore > compScore) {
 		finalScore = `That's game -- you beat the computer ${userScore} to ${compScore}`
 		removeListeners()
-		console.log(finalScore)
 
 	} else if (userScore === 5 || compScore === 5 && compScore > userScore) {
 		finalScore = `That's game -- the computer beat you ${compScore} to ${userScore}`
 		removeListeners()
-		console.log(finalScore)
 
 	} else if (userScore === 5 || compScore === 5 && compScore === userScore) {
 		finalScore = `That's a shame -- it's a tie. You should play again!`
 		removeListeners()
-		console.log(finalScore)
 	}
 }
 
