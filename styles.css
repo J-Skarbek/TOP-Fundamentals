@@ -67,6 +67,12 @@ h6 {
     font-weight: 600;
 }
 
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
 h1 {
     font-size: 2rem;
 }
@@ -87,13 +93,25 @@ body {
     background-color: var(--eggshell);
 }
 
-/* 
-font-family: 'Josefin Slab', serif; */
+button {
+    color: var(--med-peach);
+    background-color: var(--white);
+    font-weight: 700;
+    padding: 5px 20px;
+    border-radius: 25px;
+    border: 2px var(--med-peach) solid;
+}
+
+button:hover {
+    color: var(--white);
+    background-color: var(--med-peach);
+    border: 2px var(--white) solid;
+}
 
 .page-container {
     display: grid;
     grid-template-columns: repeat(12, minmax(50px, 1fr));
-    grid-template-rows: repeat(12, minmax(50px, 1fr));
+    grid-template-rows: repeat(5, minmax(50px, 1fr));
     padding: 20px 100px;
 }
 
@@ -119,6 +137,27 @@ font-family: 'Josefin Slab', serif; */
 
 .score-box {
     grid-column: 1 / span 12;
-    grid-row: 3 / span 2;
+    grid-row: 3 / span 1;
+}
+
+.footer-info {
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 1;
+}
+
+.buttons,
+.results {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.result-box {
+    padding: 5px 20px;
+    margin: 5px;
+    background-color: var(--white);
+    border: 2px var(--med-peach) solid;
+    border-radius: 25px;
 }
 
