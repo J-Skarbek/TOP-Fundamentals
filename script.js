@@ -1,3 +1,5 @@
+/* Initialize variables */
+
 let playerSelect = ''
 let computersChoice = ''
 let result = ''
@@ -5,18 +7,33 @@ let userScore = 0
 let compScore = 0
 let finalScore = ''
 
+/* Get divs for displaying/removing visual feedback */
+
 const playerOutput = document.querySelector('.player-score')
 const computerOutput = document.querySelector('.computer-score')
 const final = document.querySelector('.final-score')
+const resultsDisplay = document.querySelector('.result-box')
 
-const playerScoreOutput = document.createElement('p')
-const computerScoreOutput = document.createElement('p')
-const finalOutput = document.createElement('p')
+/* Get elements for event listeners */
 
 const rockSelect = document.querySelector('#btn-rock')
 const paperSelect = document.querySelector('#btn-paper')
 const scissorsSelect = document.querySelector('#btn-scissors')
 const playAgain = document.querySelector('#play-again')
+
+/* Append visual feedback and results */
+
+const playerScoreOutput = document.createElement('p')
+const computerScoreOutput = document.createElement('p')
+const finalOutput = document.createElement('p')
+
+/* Remove visual feedback and results */
+
+let removeResults = () => {
+	playerOutput.removeChild(playerOutput.lastElementChild)
+	computerOutput.removeChild(computerOutput.lastElementChild)
+	final.removeChild(final.lastElementChild)
+}
 
 let rock = () => {
 	playerSelect = 'rock'
@@ -99,23 +116,17 @@ let compare = (playerSelect, computersChoice) => {
 let evalScores = () => {
 	if (userScore === 5 || compScore === 5 && userScore > compScore) {
 		finalScore = `That's game -- you beat the computer ${userScore} to ${compScore}`
-		rockSelect.removeEventListener('click', rock)
-		paperSelect.removeEventListener('click', paper)
-		scissorsSelect.removeEventListener('click', scissors)
+		removeListeners()
 		console.log(finalScore)
 
 	} else if (userScore === 5 || compScore === 5 && compScore > userScore) {
 		finalScore = `That's game -- the computer beat you ${compScore} to ${userScore}`
-		rockSelect.removeEventListener('click', rock)
-		paperSelect.removeEventListener('click', paper)
-		scissorsSelect.removeEventListener('click', scissors)
+		removeListeners()
 		console.log(finalScore)
 
 	} else if (userScore === 5 || compScore === 5 && compScore === userScore) {
 		finalScore = `That's a shame -- it's a tie. You should play again!`
-		rockSelect.removeEventListener('click', rock)
-		paperSelect.removeEventListener('click', paper)
-		scissorsSelect.removeEventListener('click', scissors)
+		removeListeners()
 		console.log(finalScore)
 	}
 }
@@ -124,69 +135,23 @@ let resetScores = () => {
 	userScore = 0
 	compScore = 0
 	finalScore = ''
-	// playerOutput.removeChild(p)
-	// computerOutput.removeChild(p)
-	// final.removeChild(p)
-
+	addListeners()
+	removeResults()
 }
 
-// btn.addEventListener('click', userChoice)
-// btn2.addEventListener('click', fiveRoundGame)
+let removeListeners = () => {
+	rockSelect.removeEventListener('click', rock)
+	paperSelect.removeEventListener('click', paper)
+	scissorsSelect.removeEventListener('click', scissors)
+}
+
+let addListeners = () => {
+	rockSelect.addEventListener('click', rock)
+	paperSelect.addEventListener('click', paper)
+	scissorsSelect.addEventListener('click', scissors)
+}
 
 rockSelect.addEventListener('click', rock)
 paperSelect.addEventListener('click', paper)
 scissorsSelect.addEventListener('click', scissors)
 playAgain.addEventListener('click', resetScores)
-
-
-
-
-//To be deleted:
-
-// let validateInput = () => {
-// 	if (playerSelect === null || playerSelect === '') {
-// 		return 
-// 	} else if (playerSelect === 'scissors' || playerSelect === 'paper' || playerSelect === 'rock') {
-// 		playerSelect.toLowerCase()
-// 		computerPlay()
-// 		compare(playerSelect, computersChoice)
-// 		alert(result)
-// 	} else {
-// 		alert("You fucked up the input!")
-// 		playerSelect = prompt("Rock, Paper, or scissors").toLowerCase()
-// 		validateInput()
-// 	}
-// }
-
-// let validateByFive = () => {
-// 	if (playerSelect === null || playerSelect === '') {
-// 		return
-// 	} else if (playerSelect === 'scissors' || playerSelect === 'paper' || playerSelect === 'rock') {
-// 		computerPlay()
-// 		compare(playerSelect, computersChoice)
-// 	} else {
-// 		alert("You fucked up the input!")
-// 	}
-// }
-
-// let fiveRoundGame = () => {
-//     for (let i = 0; i < 5; i++) {
-// 		playerSelect = prompt("Rock, Paper, or Scissors").toLowerCase()
-// 		validateByFive()
-// 	}
-// 	evalScores(userScore, compScore)
-// 	alert(finalScore)
-// 	resetScores()
-// }
-
-// let evalScores = () => {
-// 	if (userScore === 0 && compScore === 0) {
-// 		finalScore = `There was an issue with the input.`
-// 	} else if (compScore > userScore) {
-// 		finalScore = `Shit, you fucking lost! The computer whooped your ass ${compScore} to ${userScore}.`
-// 	} else if (compScore < userScore) {
-// 		finalScore = `Congrats, you won! You beat the computer ${userScore} to ${compScore}.`
-// 	} else {
-// 		finalScore = `Fuck, this is annoying, it's a goddamned fucking tie.`
-// 	}
-// }
