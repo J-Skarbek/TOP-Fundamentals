@@ -161,6 +161,7 @@ button:hover {
     border: 2px var(--med-peach) solid;
     border-radius: 25px;
     min-width: 250px;
+    height: 75px;
 }
 
 .final-score {
